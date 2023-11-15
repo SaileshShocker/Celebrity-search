@@ -1,7 +1,7 @@
 ## integrating code to openai
 
 import os
-from constants import openai_key
+from properties import openai_key
 from langchain.llms import OpenAI
 from langchain import PromptTemplate
 from langchain.chains import LLMChain
@@ -12,13 +12,61 @@ import streamlit as st
 
 os.environ["OPENAI_API_KEY"]=openai_key
 
+############################################################################################################################
 
-#Streamlit Framework
 
-st.title('Celebrity Search')
+# Streamlit Framework
+# st.set_page_config(
+#     page_title="Search Application",
+#     page_icon="🔍",
+#     layout="wide",
+#     initial_sidebar_state="expanded",
+# )
 
-input_text = st.text_input("Search the topic you want")
 
+
+#Background
+custom_css = """
+<style>
+.main {
+    background-image: url('https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+</style>
+"""
+
+st.markdown(custom_css, unsafe_allow_html=True)
+
+#for background image
+st.markdown('<div class="main">', unsafe_allow_html=True)
+
+
+#Title
+original_title = '<p style="font-family:cursive; color:lightskyblue; font-size: 60px;"><strong>Search Application</strong></p>'
+st.markdown(original_title, unsafe_allow_html=True)
+
+
+#Search Bar
+
+st.title('Search about a person or a celebrity.')
+
+input_text = st.text_input("Enter your search", key="search_input", value="", type="default")
+
+# Apply custom CSS to the text input
+st.markdown(
+    """
+    <style>
+    div[data-baseweb="input"] input {
+        background-color: black !important;
+        border-radius: 5px !important; /* Adjust the radius as needed */
+        padding: 10px; /* Adjust padding for better appearance */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 
 ## First Prompt Template
@@ -83,3 +131,6 @@ if input_text:
 
     with st.expander('Major Events'): 
         st.info(descr_memory.buffer)
+        
+#for background image
+st.markdown('</div>', unsafe_allow_html=True)
