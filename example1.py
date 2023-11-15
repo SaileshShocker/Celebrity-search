@@ -10,6 +10,32 @@ from langchain.memory import ConversationBufferMemory
 
 import streamlit as st
 
+st.markdown("""
+<style>
+
+.css-1rs6os.edgvbvh3
+{
+    visibility: hidden;
+}
+
+.css-cio0dv.egzxvld1
+{
+    visibility: hidden;
+}
+
+.css-9s5bis.edgvbvh3
+{
+    visibility: hidden;
+}
+
+.css-h5rgaw.egzxvld1
+
+{
+    visibility: hidden;
+}
+</style>
+""",unsafe_allow_html=True)
+
 os.environ["OPENAI_API_KEY"]=openai_key
 
 ############################################################################################################################
