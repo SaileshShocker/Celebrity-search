@@ -10,6 +10,8 @@ from langchain.memory import ConversationBufferMemory
 
 import streamlit as st
 
+#___________________________________________________________________________________________________________________
+# Removivng watermark and menu bar from webpage
 st.markdown("""
 <style>
 
@@ -36,6 +38,9 @@ st.markdown("""
 </style>
 """,unsafe_allow_html=True)
 
+#___________________________________________________________________________________________________________________
+
+
 os.environ["OPENAI_API_KEY"]=openai_key
 
 ############################################################################################################################
@@ -48,7 +53,7 @@ os.environ["OPENAI_API_KEY"]=openai_key
 #     layout="wide",
 #     initial_sidebar_state="expanded",
 # )
-
+############################################################################################################################
 
 
 #Background

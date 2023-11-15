@@ -1,7 +1,7 @@
 ## integrating code to openai
 
 import os
-from constants import openai_key
+from properties import openai_key
 from langchain.llms import OpenAI
 import streamlit as st
 
